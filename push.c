@@ -10,21 +10,21 @@
  *
  * return: 0 for success
  */
-void push(Stack* stack, const char* arg, int line_number) {
+void push(stack_t* stack, const char* arg, int line_number) {
 	int value = atoi(arg);
 
 	if (arg == NULL || *arg == '\0')
 	{
 		printf("L%d: usage: push integer\n", line_number);
-		freeStack(stack);
+		freestack_t(stack);
 		exit(EXIT_FAILURE);
 	}
 
 
 	if (stack->top == stack->capacity - 1)
 	{
-		printf("L%d: Stack overflow\n", line_number);
-		freeStack(stack);
+		printf("L%d: stack_t overflow\n", line_number);
+		freestack_t(stack);
 		exit(EXIT_FAILURE);
 	}
 

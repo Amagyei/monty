@@ -12,7 +12,7 @@
  */
 
 
-void pall(Stack* stack)
+void pall(stack_t* stack)
 {
 	int i;
 	for (i = stack->top; i >= 0; i--)

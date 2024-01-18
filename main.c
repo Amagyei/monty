@@ -13,8 +13,8 @@
  *   Returns 0 upon successful execution, or EXIT_FAILURE if an error occurs.
  */
 
-Stack* declareStack(int capacity) {
-    Stack* stack = malloc(sizeof(Stack));
+stack_t* declarestack_t(int capacity) {
+    stack_t* stack = malloc(sizeof(stack_t));
 
     if (stack == NULL) {
         printf("Memory allocation failed. Exiting.\n");
@@ -34,13 +34,13 @@ Stack* declareStack(int capacity) {
 
     return stack;
 }
-void freeStack(Stack* stack) {
+void freestack_t(stack_t* stack) {
     free(stack->array);
     free(stack);
 }
 int main(int argc, char* argv[]) {
 	FILE* file = fopen(argv[1], "r");
-	Stack* myStack = declareStack(MAX_STACK_SIZE);
+	stack_t* mystack_t = declarestack_t(MAX_STACK_SIZE);
 	char opcode[50];
 	char arg[50];
 	int line_number = 0;
@@ -66,27 +66,27 @@ int main(int argc, char* argv[]) {
 			if (fscanf(file, "%s", arg) != 1)
 			{
 				printf("L%d: usage: push integer\n", line_number);
-				freeStack(myStack);
+				freestack_t(mystack_t);
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
-			push(myStack, arg, line_number);
+			push(mystack_t, arg, line_number);
 		}
 		else if (strcmp(opcode, "pall") == 0)
 		{
-			pall(myStack);
+			pall(mystack_t);
 		}
 		else
 		{
 			printf("L%d: Unknown opcode: %s\n", line_number, opcode);
-			freeStack(myStack);
+			freestack_t(mystack_t);
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 	}
 
 	fclose(file);
-	freeStack(myStack);
+	freestack_t(mystack_t);
 
 	return 0;
 }
