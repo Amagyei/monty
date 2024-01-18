@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
 
         if (instructions[i].opcode == NULL) {
             printf("L%d: Unknown opcode: %s\n", line_number, opcode);
-            freestack_t(mystack_t);
+            freestack_t(*mystack_t);
             fclose(file);
             exit(EXIT_FAILURE);
         }
