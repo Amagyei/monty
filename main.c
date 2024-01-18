@@ -14,7 +14,7 @@
  */
 
 stack_t** declarestack_t(int capacity) {
-    stack_t* stack = malloc(sizeof(stack_t));
+    stack_t** stack = malloc(sizeof(stack_t));
 
 	
 
