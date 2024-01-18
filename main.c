@@ -13,7 +13,7 @@
  *   Returns 0 upon successful execution, or EXIT_FAILURE if an error occurs.
  */
 
-stack_t* declarestack_t(int capacity) {
+stack_t** declarestack_t(int capacity) {
     stack_t* stack = malloc(sizeof(stack_t));
 
 	
