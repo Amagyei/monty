@@ -48,9 +48,9 @@ int main(int argc, char* argv[]) {
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
-		// Add more opcodes and corresponding functions as needed
-		{NULL, NULL} // Terminate the array with NULL values
+		{NULL, NULL}
 	};
+	int i = 0;
 	char opcode[50];
 	char arg[50];
 	int line_number = 0;
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
         line_number++;
 
         // Search for the opcode in the instructions array
-        int i = 0;
+        
         while (instructions[i].opcode != NULL) {
             if (strcmp(opcode, instructions[i].opcode) == 0) {
                 // Execute the corresponding function
@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
 
         if (instructions[i].opcode == NULL) {
             printf("L%d: Unknown opcode: %s\n", line_number, opcode);
-            freeStack(mystack_t);
+            freestack_t(mystack_t);
             fclose(file);
             exit(EXIT_FAILURE);
         }
