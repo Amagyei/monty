@@ -12,7 +12,7 @@
  */
 
 
-void pall(stack_t **stack, unsigned int line_number, const char *arg)
+void pall(stack_t **stack)
 {
 	int i;
 	for (i = (* stack)->top; i >= 0; i--)

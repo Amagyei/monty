@@ -21,7 +21,6 @@ typedef struct instruction_s
 stack_t* declarestack_t(int capacity);
 void freestack_t(stack_t* stack);
 void push(stack_t **stack, unsigned int line_number, const char *arg);
-void pall(stack_t **stack, unsigned int line_number, const char *arg);
+void pall(stack_t **stack);
 
 #endif /* MAIN_H */
-

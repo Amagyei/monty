@@ -52,7 +52,6 @@ int main(int argc, char* argv[]) {
 	};
 	int i = 0;
 	char opcode[50];
-	char arg[50];
 	int line_number = 0;
 
 	if (argc != 2)
@@ -71,11 +70,10 @@ int main(int argc, char* argv[]) {
     while (fscanf(file, "%s", opcode) != EOF) {
         line_number++;
 
-        // Search for the opcode in the instructions array
+        
         
         while (instructions[i].opcode != NULL) {
             if (strcmp(opcode, instructions[i].opcode) == 0) {
-                // Execute the corresponding function
                 instructions[i].f(&mystack_t, line_number);
                 break;
             }
