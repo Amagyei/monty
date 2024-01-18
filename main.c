@@ -13,31 +13,28 @@
  *   Returns 0 upon successful execution, or EXIT_FAILURE if an error occurs.
  */
 
-stack_t** declarestack_t(int capacity) {
-    stack_t** stack = malloc(sizeof(stack_t));
-
-	
-
-	
+stack_t* declarestack_t(int capacity) {
+    stack_t* stack = malloc(sizeof(stack_t));
 
     if (stack == NULL) {
-        printf("Memory allocation failed. Exiting.\n");
+        printf("Memory allocation for stack_t structure failed. Exiting.\n");
         exit(EXIT_FAILURE);
     }
 
-    (* stack)->array = (int*)malloc(capacity * sizeof(int));
+    stack->array = (int*)malloc(capacity * sizeof(int));
 
-    if ((* stack)->array == NULL) {
-        printf("Memory allocation failed. Exiting.\n");
+    if (stack->array == NULL) {
+        printf("Memory allocation for stack array failed. Exiting.\n");
         free(stack);
         exit(EXIT_FAILURE);
     }
 
-    (* stack)->top = -1;
-    (* stack)->capacity = capacity;
+    stack->top = -1;
+    stack->capacity = capacity;
 
     return stack;
 }
+
 void freestack_t(stack_t** stack)
 {
     free((* stack)->array);
