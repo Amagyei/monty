@@ -22,13 +22,13 @@ void push(stack_t **stack, unsigned int line_number, const char *arg)
 	}
 
 
-	if (stack->top == stack->capacity - 1)
+	if ((* stack)->top == (* stack)->capacity - 1)
 	{
 		printf("L%d: stack_t overflow\n", line_number);
 		freestack_t(stack);
 		exit(EXIT_FAILURE);
 	}
 
-	stack->array[++stack->top] = value;
+	(* stack)->array[++(* stack)->top] = value;
 }
 

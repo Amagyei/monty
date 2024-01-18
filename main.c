@@ -46,11 +46,11 @@ int main(int argc, char* argv[]) {
 	FILE* file = fopen(argv[1], "r");
 	stack_t* mystack_t = declarestack_t(MAX_STACK_SIZE);
 	instruction_t instructions[] = {
-        {"push", push},
-        {"pall", pall},
-        // Add more opcodes and corresponding functions as needed
-        {NULL, NULL} // Terminate the array with NULL values
-    };
+		{"push", push},
+		{"pall", pall},
+		// Add more opcodes and corresponding functions as needed
+		{NULL, NULL} // Terminate the array with NULL values
+	};
 	char opcode[50];
 	char arg[50];
 	int line_number = 0;

@@ -15,8 +15,8 @@
 void pall(stack_t **stack, unsigned int line_number, const char *arg)
 {
 	int i;
-	for (i = stack->top; i >= 0; i--)
+	for (i = (* stack)->top; i >= 0; i--)
 	{
-		printf("%d\n", stack->array[i]);
+		printf("%d\n", (* stack)->array[i]);
 	}
 }
