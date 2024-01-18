@@ -25,16 +25,16 @@ stack_t** declarestack_t(int capacity) {
         exit(EXIT_FAILURE);
     }
 
-    stack->array = (int*)malloc(capacity * sizeof(int));
+    (* stack)->array = (int*)malloc(capacity * sizeof(int));
 
-    if (stack->array == NULL) {
+    if ((* stack)->array == NULL) {
         printf("Memory allocation failed. Exiting.\n");
         free(stack);
         exit(EXIT_FAILURE);
     }
 
-    stack->top = -1;
-    stack->capacity = capacity;
+    (* stack)->top = -1;
+    (* stack)->capacity = capacity;
 
     return stack;
 }
