@@ -38,8 +38,9 @@ stack_t* declarestack_t(int capacity) {
 
     return stack;
 }
-void freestack_t(stack_t* stack) {
-    free(stack->array);
+void freestack_t(stack_t** stack)
+{
+    free((* stack)->array);
     free(stack);
 }
 int main(int argc, char* argv[]) {
