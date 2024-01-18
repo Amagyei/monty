@@ -45,7 +45,7 @@ void freestack_t(stack_t** stack)
 }
 int main(int argc, char* argv[]) {
 	FILE* file = fopen(argv[1], "r");
-	stack_t* mystack_t = declarestack_t(MAX_STACK_SIZE);
+	stack_t** mystack_t = declarestack_t(MAX_STACK_SIZE);
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
 
         if (instructions[i].opcode == NULL) {
             printf("L%d: Unknown opcode: %s\n", line_number, opcode);
-            freestack_t(*mystack_t);
+            freestack_t(mystack_t);
             fclose(file);
             exit(EXIT_FAILURE);
         }
