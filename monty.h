@@ -18,7 +18,7 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-stack_t* declarestack_t(int capacity);
+stack_t** declarestack_t(int capacity);
 void freestack_t(stack_t** stack);
 void push(stack_t **stack, unsigned int line_number, const char *arg);
 void pall(stack_t **stack);
