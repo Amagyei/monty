@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int line_number, const char *arg)
 	if (arg == NULL || *arg == '\0')
 	{
 		printf("L%d: usage: push integer\n", line_number);
-		freestack_t(stack);
+		freestack_t((* stack));
 		exit(EXIT_FAILURE);
 	}
 
