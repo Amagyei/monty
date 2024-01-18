@@ -10,25 +10,21 @@
  *
  * return: 0 for success
  */
-void push(stack_t **stack, unsigned int line_number, const char *arg)
-{
-	int value = atoi(arg);
+void push(stack_t **stack, unsigned int line_number) {
+    int value = atoi(global_arg);
 
-	if (arg == NULL || *arg == '\0')
-	{
-		printf("L%d: usage: push integer\n", line_number);
-		freestack_t(stack);
-		exit(EXIT_FAILURE);
-	}
+    if (global_arg == NULL || *global_arg == '\0') {
+        printf("L%d: usage: push integer\n", line_number);
+        freestack_t(stack);
+        exit(EXIT_FAILURE);
+    }
 
+    if ((*stack)->top == (*stack)->capacity - 1) {
+        printf("L%d: stack_t overflow\n", line_number);
+        freestack_t(stack);
+        exit(EXIT_FAILURE);
+    }
 
-	if ((* stack)->top == (* stack)->capacity - 1)
-	{
-		printf("L%d: stack_t overflow\n", line_number);
-		freestack_t(stack);
-		exit(EXIT_FAILURE);
-	}
-
-	(* stack)->array[++(* stack)->top] = value;
+    (*stack)->array[++(*stack)->top] = value;
 }
 

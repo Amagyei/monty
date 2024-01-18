@@ -51,6 +51,7 @@ int main(int argc, char* argv[]) {
 		{"pall", pall},
 		{NULL, NULL}
 	};
+	global_arg = argv[2];
 	int i = 0;
 	char opcode[50];
 	int line_number = 0;
