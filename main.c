@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
         
         while (instructions[i].opcode != NULL) {
             if (strcmp(opcode, instructions[i].opcode) == 0) {
-                instructions[i].f(&mystack_t, line_number);
+                instructions[i].f(mystack_t, line_number);
                 break;
             }
             i++;
