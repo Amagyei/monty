@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 	instruction_t instructions[] = {
         {"push", push},
         {"pall", pall},
-
+        // Add more opcodes and corresponding functions as needed
         {NULL, NULL} // Terminate the array with NULL values
     };
 	char opcode[50];
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	while (fscanf(file, "%s", opcode) != EOF) {
+    while (fscanf(file, "%s", opcode) != EOF) {
         line_number++;
 
         // Search for the opcode in the instructions array
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
         while (instructions[i].opcode != NULL) {
             if (strcmp(opcode, instructions[i].opcode) == 0) {
                 // Execute the corresponding function
-                instructions[i].f(&mystack_t, line_number);
+                instructions[i].f(&mystack_t, line_number, arg);
                 break;
             }
             i++;

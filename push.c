@@ -10,7 +10,8 @@
  *
  * return: 0 for success
  */
-void push(stack_t* stack, const char* arg, int line_number) {
+void push(stack_t **stack, unsigned int line_number, const char *arg)
+{
 	int value = atoi(arg);
 
 	if (arg == NULL || *arg == '\0')
