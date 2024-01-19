@@ -1,30 +1,37 @@
 #include "monty.h"
+/**
+ * f_push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void f_push(stack_t **head, unsigned int counter)
+{
+	int n, j = 0, flag = 0;
 
-
-/*
- * push - function to push items onto stack
- *
- * Description: function fr stack to recieve items
- *
- * @value: item to be recieved onto stack
- *
- * return: 0 for success
- */
-void push(stack_t **stack, unsigned int line_number) {
-    int value = atoi(global_arg);
-
-    if (global_arg == NULL || *global_arg == '\0') {
-        printf("L%d: usage: push integer\n", line_number);
-        freestack_t(stack);
-        exit(EXIT_FAILURE);
-    }
-
-    if ((*stack)->top == (*stack)->capacity - 1) {
-        printf("L%d: stack_t overflow\n", line_number);
-        freestack_t(stack);
-        exit(EXIT_FAILURE);
-    }
-
-    (*stack)->array[++(*stack)->top] = value;
+	if (bus.arg)
+	{
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
+		{
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1; }
+		if (flag == 1)
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
+	else
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE); }
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		addnode(head, n);
+	else
+		addqueue(head, n);
 }
-

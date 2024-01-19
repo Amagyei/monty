@@ -1,25 +1,21 @@
 #include "monty.h"
-
-
-/*
- * pall - function fo rpall
- *
- * Description: function to pull and print all the items in the stack
- *
- * @stack: stack to be printed
- *
- * return: 0
- */
-
-
-void pall(stack_t **stack, unsigned int line_number)
+/**
+ * f_pall - prints the stack
+ * @head: stack head
+ * @counter: no used
+ * Return: no return
+*/
+void f_pall(stack_t **head, unsigned int counter)
 {
-    int i;
-	line_number++;
-	
-    for (i = (*stack)->top; i >= 0; i--)
-    {
-        printf("%d\n", (*stack)->array[i]);
-    }
-}
+	stack_t *h;
+	(void)counter;
 
+	h = *head;
+	if (h == NULL)
+		return;
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
+}
